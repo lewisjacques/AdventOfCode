@@ -1,11 +1,12 @@
-from aoc_tools import retrieve_input
 import sys
 sys.path.insert(0, "..")
+from aoc_tools import retrieve_input
 
 class Day1:
     def __init__(self):
         # Retrieve data 
         raw_input = retrieve_input(1)
+
         # Parse data according to input format
         self.left, self.right = self.parse_input(raw_input)
 
