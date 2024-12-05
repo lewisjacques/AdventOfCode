@@ -78,7 +78,8 @@ class Report:
 class Day2:
     def __init__(self, part2=False):
         # Retrieve data 
-        raw_input = retrieve_input(2)
+        self.day_num = re.findall(r"Day(\d{1,2})", self.__class__.__name__)[0]
+        raw_input = retrieve_input(self.day_num)
         # Parse data according to input format
         self.reports = self.parse_input(raw_input, part2)
         # Calculate output values

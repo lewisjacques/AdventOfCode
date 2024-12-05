@@ -5,7 +5,8 @@ from aoc_tools import retrieve_input
 class Day1:
     def __init__(self):
         # Retrieve data 
-        raw_input = retrieve_input(1)
+        self.day_num = re.findall(r"Day(\d{1,2})", self.__class__.__name__)[0]
+        raw_input = retrieve_input(self.day_num)
 
         # Parse data according to input format
         self.left, self.right = self.parse_input(raw_input)
