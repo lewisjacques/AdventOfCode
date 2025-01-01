@@ -1,11 +1,14 @@
-from aoc_tools import retrieve_input
 import sys
 sys.path.insert(0, "..")
+from aoc_tools import retrieve_input
+import re
 
 class Day1:
     def __init__(self):
         # Retrieve data 
-        raw_input = retrieve_input(1)
+        self.day_num = re.findall(r"Day(\d{1,2})", self.__class__.__name__)[0]
+        raw_input = retrieve_input(self.day_num)
+
         # Parse data according to input format
         self.left, self.right = self.parse_input(raw_input)
 
@@ -81,5 +84,6 @@ class Day1:
         sim_score = sum([lv*r_val_count[lv] for lv in self.left])
         return(sim_score)
     
-print(f"Result p1: {Day1().output_p1}")
-print(f"Result p2: {Day1().output_p2}")
+d = Day1()
+print(f"Result p1: {d.output_p1}")
+print(f"Result p2: {d.output_p2}")

@@ -19,6 +19,9 @@ def retrieve_input(day:int, year:int=2024) -> str:
     Returns:
         str: raw input
     """
+    if day == 0:
+        print("Change the Class name in the template Day class, please")
+        exit()
 
     # Specify active login for retrieving outside of the browser
     headers = {
@@ -43,4 +46,5 @@ def retrieve_input(day:int, year:int=2024) -> str:
         text = response.text
         return(text)
     else:
+        
         print(response.text)
