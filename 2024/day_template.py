@@ -54,5 +54,6 @@ class Day0:
 
         return(None)
     
-print(f"Result p1: {Day0().output_p1}")
-print(f"Result p2: {Day0().output_p2}")
+d = Day0()
+print(f"Result p1: {d.output_p1}")
+print(f"Result p2: {d.output_p2}")

@@ -2,6 +2,7 @@ import sys
 sys.path.insert(0, "..")
 from aoc_tools import retrieve_input
 from copy import deepcopy
+import re
 
 class Report:
     def __init__(self, report_str:str, part2:bool):
@@ -54,7 +55,7 @@ class Report:
             self.set_unsafe_point(None)
         return(True)
     
-    def double_check_unsafe_report(self):
+    def double_check_unsafe_report(self, verbose=False):
         # Try removing indexes from both problematic values
         for bookends in range(-1,1):
             new_levels = deepcopy(self.levels)
@@ -62,16 +63,17 @@ class Report:
             new_status = self.get_status(new_levels, set_unsafe=False)
             # If now safe, return
             if new_status:
-                print("Successfully found safe")
-                print(f"Old levels {self.levels}")
-                print(f"Index removed: {self.unsafe_point+bookends}")
-                print(f"New levels: {new_levels}")
+                if verbose:
+                    print("Successfully found safe")
+                    print(f"Old levels {self.levels}")
+                    print(f"Index removed: {self.unsafe_point+bookends}")
+                    print(f"New levels: {new_levels}")
                 return(True)
-
-            print("Report still Unsafe")
-            print(f"Levels {self.levels}")
-            print(f"Removed index: {self.unsafe_point+bookends}")
-            print(f"New levels: {new_levels}")
+            if verbose:
+                print("Report still Unsafe")
+                print(f"Levels {self.levels}")
+                print(f"Removed index: {self.unsafe_point+bookends}")
+                print(f"New levels: {new_levels}")
 
         return(new_status)
 
@@ -101,5 +103,8 @@ class Day2:
     def calc_safe_count(self):
         safe_count = sum([1 for r in self.reports if r.safe])
         return(safe_count)
-    
-print(f"Result: {Day2(part2=True).output}")
+
+d1 = Day2()
+d2 = Day2(part2=True)
+print(f"Result p1: {d1.output}")
+print(f"Result p2: {d2.output}")

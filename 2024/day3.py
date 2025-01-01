@@ -66,5 +66,6 @@ class Day3:
             sum += int(vals[0]) * int(vals[1])
         return(sum)
     
-print(f"Result p1: {Day3().output_p1}")
-print(f"Result p2: {Day3().output_p2}")
+d = Day3()
+print(f"Result p1: {d.output_p1}")
+print(f"Result p2: {d.output_p2}")
